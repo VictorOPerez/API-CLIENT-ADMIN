@@ -1,0 +1,36 @@
+.login {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lContainer {
+  /* width: 30%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.lImupt {
+  width: 100%;
+  height: 30px;
+  padding: 10px;
+}
+
+.lButton {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  background-color: #0071c2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.lButton:disabled {
+  background-color: #0071c28c;
+  cursor: not-allowed;
+}

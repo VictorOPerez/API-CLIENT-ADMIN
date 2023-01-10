@@ -1,0 +1,38 @@
+import useFetch from "../../hooks/useFetch";
+import "./feuturedProperties.css";
+
+const FeuturedProperties = () => {
+  const { data, loading, error } = useFetch("/hotels?featured=true&limit=4");
+  // localhost:8800/api/hotels?featured=true&limit=2&min=10&max=200
+  // console.log(data);
+  return (
+    <div className="fp">
+      {loading ? (
+        "Loading"
+      ) : (
+        <>
+          {data.map((item) => {
+            return (
+              <div className="fpItem" key={item.id}>
+                <img src={item.photos[0]} alt="" className="fpImg" />
+                <span className="fpName">{item.name}</span>
+                <span className="fpCityName">{item.city}</span>
+                <span className="fpPrice">
+                  Starting from ${item.cheapestPrice}
+                </span>
+                {item.rating && (
+                  <div className="fpRating">
+                    <button>{item.rating}</button>
+                    <span>Excellent</span>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </>
+      )}
+    </div>
+  );
+};
+
+export default FeuturedProperties;
